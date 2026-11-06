@@ -1,9 +1,4 @@
-! ============================================================================
-!  SW2 · Cisco vIOS-L2 (IOS 15.2)
-!  Funcion: switch de la LAN y agente SNMP de solo lectura
-!  Laboratorio: DHCP, SNMP y Zabbix
-!  Construido a partir del running-config. Sustituye <...> por tus claves.
-! ============================================================================
+
 enable
 configure terminal
 hostname SW2

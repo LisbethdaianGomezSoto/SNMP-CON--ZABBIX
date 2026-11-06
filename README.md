@@ -49,8 +49,7 @@
 12. [Resultado frente a los requisitos](#-resultado-frente-a-los-requisitos)
 13. [Scripts](#-scripts)
 14. [Running-configs](#-running-configs)
-15. [Problemas encontrados](#-problemas-encontrados)
-16. [Estructura del repositorio](#-estructura-del-repositorio)
+15. [Estructura del repositorio](#-estructura-del-repositorio)
 
 ---
 
@@ -108,36 +107,34 @@ Detalle ampliado: [`docs/01-proposito-y-objetivos.md`](docs/01-proposito-y-objet
 ### Diagrama lógico
 
 ```mermaid
-%%{init: {'theme':'dark'}}%%
-flowchart TB
-    R1["🟦 R1 · Cisco 2691<br/>f0/0 · 10.7.1.1/24<br/>Servidor DHCP + SNMP RO"]:::router
-    SW1["🔀 SW1 · vIOS-L2<br/>Vlan1 · 10.7.1.2/24"]:::switch
-    SW2["🔀 SW2 · vIOS-L2<br/>Vlan1 · 10.7.1.3/24"]:::switch
-    ZBX["🖥 Servidor Zabbix<br/>Ubuntu 24.04 · ens33<br/>Cliente DHCP"]:::server
-    PC["💻 PC · Windows 10<br/>10.7.1.20/24<br/>navegador"]:::client
-    NET["☁ Internet<br/>solo durante la instalación"]:::cloud
+flowchart LR
+    %% Nodos con formas diferentes
+    Internet((🌐 Internet)):::wan
+    Router[/🟦 R1 - Cisco 7200<br/>20.25.6.97/24<br/>DHCP + SNMP RO/]:::router
+    Switch1[🔀 SW1 - IOSvL2<br/>20.25.6.98/24]:::switch
+    Switch2[🔀 SW2 - IOSvL2<br/>20.25.6.99/24]:::switch
+    Server[(🖥️ Zabbix - Ubuntu<br/>Cliente DHCP)]:::server
+    PC[💻 Windows 10<br/>Gestión]:::client
 
-    R1 ---|"f0/0 ↔ Gi0/0"| SW1
-    SW1 ---|"Gi0/1 ↔ Gi0/0"| SW2
-    SW1 ---|"Gi0/2 ↔ e0"| ZBX
-    SW2 ---|"Gi0/1 ↔ e0"| PC
-    NET -.-> ZBX
+    %% Conexiones Físicas
+    Internet --- Router
+    Router --- Switch1
+    Switch1 --- Server
+    Switch1 --- Switch2
+    Switch2 --- PC
 
-    ZBX -.->|"SNMP v2c · UDP 161"| R1
-    ZBX -.-> SW1
-    ZBX -.-> SW2
+    %% Conexiones Lógicas (SNMP)
+    Server -. "SNMP v2c" .-> Router
+    Server -. "SNMP v2c" .-> Switch1
+    Server -. "SNMP v2c" .-> Switch2
 
-    classDef router fill:#0066FF,stroke:#00E5FF,stroke-width:3px,color:#fff
-    classDef switch fill:#06B6D4,stroke:#0066FF,stroke-width:2px,color:#06283D
-    classDef server fill:#7C3AED,stroke:#C4B5FD,stroke-width:3px,color:#fff
-    classDef client fill:#10B981,stroke:#065F46,stroke-width:2px,color:#052E16
-    classDef cloud fill:#1E293B,stroke:#00E5FF,stroke-width:2px,color:#E2E8F0,stroke-dasharray:5 5
-    linkStyle 0,1,2,3 stroke:#0066FF,stroke-width:3px
-    linkStyle 4,5,6,7 stroke:#7C3AED,stroke-width:2px,stroke-dasharray:6 4
+    %% Estilos (Colores diferentes a Lisbeth)
+    classDef wan fill:#1f2937,stroke:#10b981,stroke-width:3px,color:#fff
+    classDef router fill:#0ea5e9,stroke:#082f49,stroke-width:3px,color:#fff
+    classDef switch fill:#14b8a6,stroke:#042f2e,stroke-width:2px,color:#fff
+    classDef server fill:#8b5cf6,stroke:#2e1065,stroke-width:3px,color:#fff
+    classDef client fill:#f59e0b,stroke:#451a03,stroke-width:2px,color:#fff
 ```
-
-> Las líneas **continuas azules** son enlaces de la red; las **punteadas moradas** son conexión temporal a internet (instalación) y consultas SNMP.
-
 ---
 
 ## 🧮 Plan de direccionamiento

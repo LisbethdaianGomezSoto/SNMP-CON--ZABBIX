@@ -279,20 +279,33 @@ snmp-server location Laboratorio
 Se consulta `sysName` (`1.3.6.1.2.1.1.5.0`) y se intenta modificar `sysLocation` (`1.3.6.1.2.1.1.6.0`).
 
 ```mermaid
-%%{init: {'theme':'dark'}}%%
-sequenceDiagram
-    participant Z as 🖥 Servidor (snmp-tools)
-    participant A as 🔀 Agente SNMP (R1 · SW1 · SW2)
+flowchart TD
+    %% Estilos personalizados
+    classDef servidor fill:#0d0914,stroke:#00e5ff,stroke-width:2px,color:#fff
+    classDef agente fill:#0d0914,stroke:#ff00ff,stroke-width:2px,color:#fff
+    classDef exito fill:#00e5ff,stroke:#fff,stroke-width:1px,color:#000,font-weight:bold
+    classDef fallo fill:#ff00ff,stroke:#fff,stroke-width:1px,color:#fff,font-weight:bold
+    
+    S[🖥️ Servidor snmp-tools]:::servidor
+    
+    subgraph Pruebas [Validación en el Agente SNMP]
+        direction TB
+        P1(1. GET sysName.0) -->|Comunidad ZBX_RO| R1[✅ Responde: R1 / SW1 / SW2]:::exito
+        P2(2. SET sysLocation.0) -->|Comunidad ZBX_RO| R2[⛔ Error: noAccess - Solo lectura]:::fallo
+        P3(3. GET sysName.0) -->|Comunidad Incorrecta| R3[❌ Timeout: Agente descarta petición]:::fallo
+    end
+    
+    A[🔀 Agente SNMP R1/SW1/SW2]:::agente
+    
+    S ==> P1
+    S ==> P2
+    S ==> P3
+    
+    R1 -.-> A
+    R2 -.-> A
+    R3 -.-> A
 
-    Z->>A: GET sysName.0 · comunidad ZBX_RO
-    A-->>Z: "R1" / "SW1" / "SW2"
 
-    Z->>A: SET sysLocation.0 = "prueba" · comunidad ZBX_RO
-    A-->>Z: Error · noAccess (solo lectura)
-
-    Z->>A: GET sysName.0 · comunidad incorrecta
-    Note over Z,A: El agente descarta la petición
-    A--xZ: Timeout · sin respuesta
 ```
 
 | Prueba | Resultado esperado | R1 | SW1 | SW2 |

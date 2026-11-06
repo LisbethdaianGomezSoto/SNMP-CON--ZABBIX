@@ -1,4 +1,4 @@
-# 📚 05 · Conceptos SNMP
+# 📚 04 · Conceptos SNMP
 
 [← Anterior: Troubleshooting](04-troubleshooting.md) · [Volver al README](../README.md)
 

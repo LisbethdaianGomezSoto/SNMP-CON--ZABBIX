@@ -1,9 +1,4 @@
-! ============================================================================
-!  R1 · Cisco 2691 (IOS 12.4)
-!  Funcion: gateway, servidor DHCP de la LAN y agente SNMP de solo lectura
-!  Laboratorio: DHCP, SNMP y Zabbix
-!  Construido a partir del running-config. Sustituye <...> por tus claves.
-! ============================================================================
+
 enable
 configure terminal
 hostname R1

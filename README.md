@@ -574,18 +574,6 @@ Contienen la comunidad SNMP de laboratorio. Las claves de acceso se publican ocu
 
 ---
 
-## 🔧 Problemas encontrados
-
-Incidentes del laboratorio, con su evidencia, en [`docs/04-troubleshooting.md`](docs/04-troubleshooting.md):
-
-| Problema | Causa | Solución |
-|---|---|---|
-| Equipos en Zabbix con SNMP en rojo (`timed out`) | La macro `{$SNMP_COMMUNITY}` tenía un guion (`ZBX-RO`) y la comunidad real lleva guion bajo (`ZBX_RO`) | Corregir el valor de la macro |
-| El servidor no podía descargar paquetes | La LAN no tiene salida a internet | Segundo adaptador con internet solo durante la instalación |
-| La IP del servidor cambia | Es un cliente DHCP | Esperado; se documenta el historial |
-| `System name has changed` en el dashboard | Los equipos tienen `ip domain-name red.local` | Esperado; el nombre SNMP incluye el dominio |
-
----
 
 ## 📁 Estructura del repositorio
 
@@ -598,8 +586,9 @@ Incidentes del laboratorio, con su evidencia, en [`docs/04-troubleshooting.md`](
 │   ├── 01-proposito-y-objetivos.md
 │   ├── 02-plan-de-direccionamiento.md
 │   ├── 03-procedimiento-zabbix.md
-│   ├── 04-troubleshooting.md
-│   └── 05-conceptos-snmp.md
+│   └── 04-conceptos-snmp.md
+│
+│ 
 ├── diagrams/                   # fuentes Mermaid (.mmd)
 ├── screenshots/
 │   ├── 01-topologia/
@@ -610,7 +599,7 @@ Incidentes del laboratorio, con su evidencia, en [`docs/04-troubleshooting.md`](
 │   ├── 06-zabbix-cliente-dhcp/
 │   ├── 07-zabbix-agregar-equipos/
 │   ├── 08-zabbix-verificacion-snmp/
-│   └── 09-troubleshooting/
+│   └── 
 ├── scripts/
 │   ├── cisco/
 │   └── *.sh
@@ -622,8 +611,7 @@ Incidentes del laboratorio, con su evidencia, en [`docs/04-troubleshooting.md`](
 
 <div align="center">
 
-**Laboratorio de Redes: DHCP, SNMP y Zabbix** · Lisbeth Gómez · Matrícula 2025-0701
+Autora: Lisbeth Gómez · Matrícula 2025-0701
 
-<sub>Valores de comunidad SNMP y contraseñas: solo para laboratorio. No reutilizar en producción.</sub>
 
 </div>

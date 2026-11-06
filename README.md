@@ -46,10 +46,9 @@
 9. [Zabbix como cliente DHCP](#-zabbix-como-cliente-dhcp)
 10. [Agregar el router y los switches a Zabbix](#-agregar-el-router-y-los-switches-a-zabbix)
 11. [Verificación de datos SNMP en Zabbix](#-verificación-de-datos-snmp-en-zabbix)
-12. [Resultado frente a los requisitos](#-resultado-frente-a-los-requisitos)
-13. [Scripts](#-scripts)
-14. [Running-configs](#-running-configs)
-15. [Estructura del repositorio](#-estructura-del-repositorio)
+12. [Scripts](#-scripts)
+13. [Running-configs](#-running-configs)
+14. [Estructura del repositorio](#-estructura-del-repositorio)
 
 ---
 
@@ -507,37 +506,6 @@ Se reciben, entre otros: respuesta ICMP (*ping*, pérdida y tiempo), descripció
 <td align="center" valign="top" width="50%"><b>SW-2</b><br><img src="screenshots/08-zabbix-verificacion-snmp/sw2-trafico-bits-received.png" alt="Tráfico de SW2"><br><sub>Gi0/0 (SW1) 42.63 Kbps · Gi0/1 (PC) 5.1 Kbps. Los demás puertos marcan 0 bps.</sub></td>
 </tr>
 </table>
-
----
-
-## 📋 Resultado frente a los requisitos
-
-### Router y switches
-
-| Requisito | Evidencia | Estado |
-|---|---|:-:|
-| Direccionamiento IP | `show ip interface brief` de R1, SW1 y SW2; pings; running-configs | ✅ |
-| Servidor DHCP para la LAN | Pool `LAN`, `show ip dhcp binding`, running-config de R1 | ✅ |
-| Comunidad SNMP de solo lectura | `snmpget` correcto, `snmpset` con `noAccess`, running-configs | ✅ |
-
-### Servidor Zabbix
-
-| Requisito | Evidencia | Estado |
-|---|---|:-:|
-| Cliente DHCP | `ip -4 addr`, `networkctl`, registro de `systemd-networkd` y binding en R1 | ✅ |
-| Verificar datos SNMP del router y los switches | Lista de equipos con SNMP verde y *Datos más recientes* | ✅ |
-
-### Repositorio
-
-| Requisito | Estado |
-|---|:-:|
-| Documentación profesional en el repositorio | ✅ |
-| 🎬 Video demostrativo al principio del repositorio | ✅ |
-| Imágenes en la documentación | ✅ |
-| Diagramas en la documentación | ✅ |
-| Propósito del laboratorio indicado | ✅ |
-| Todo script utilizado en el repositorio | ✅ |
-| Running-configs en el repositorio | ✅ |
 
 ---
 

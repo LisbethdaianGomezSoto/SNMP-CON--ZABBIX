@@ -607,8 +607,5 @@ Contienen la comunidad SNMP de laboratorio. Las claves de acceso se publican ocu
 ---
 
 <div align="center">
-
-Autora: Lisbeth Gómez · Matrícula 2025-0701
-
-
+  <img src="banner.svg" alt="Autora Lisbeth Gómez" width="600">
 </div>

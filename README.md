@@ -308,11 +308,15 @@ flowchart TD
 
 ```
 
-| Prueba | Resultado esperado | R1 | SW1 | SW2 |
-|---|---|:-:|:-:|:-:|
-| ✅ Lectura con `ZBX_RO` | Devuelve el nombre del equipo | [captura](screenshots/04-snmp-solo-lectura/snmpget-r1.png) | [captura](screenshots/04-snmp-solo-lectura/snmpget-sw1.png) | [captura](screenshots/04-snmp-solo-lectura/snmpget-sw2.png) |
-| ⛔ Escritura con `ZBX_RO` | `Reason: noAccess` | [captura](screenshots/04-snmp-solo-lectura/snmpset-denegado-r1.png) | [captura](screenshots/04-snmp-solo-lectura/snmpset-denegado-sw1.png) | [captura](screenshots/04-snmp-solo-lectura/snmpset-denegado-sw2.png) |
-| 🚫 Comunidad incorrecta | `Timeout: No Response` | [captura](screenshots/04-snmp-solo-lectura/comunidad-incorrecta-r1.png) | [captura](screenshots/04-snmp-solo-lectura/comunidad-incorrecta-sw1.png) | [captura](screenshots/04-snmp-solo-lectura/comunidad-incorrecta-sw2.png) |
+<br>
+
+| ✅ Lectura: `snmpget` a R1 | ⛔ Escritura: `snmpset` a R1 |
+| :---: | :---: |
+| [![Lectura R1](screenshots/04-snmp-solo-lectura/snmpget-r1.png)](screenshots/04-snmp-solo-lectura/snmpget-r1.png) | [![Escritura R1](screenshots/04-snmp-solo-lectura/snmpset-denegado-r1.png)](screenshots/04-snmp-solo-lectura/snmpset-denegado-r1.png) |
+| R1 responde con su nombre (`"R1"`). | R1 rechaza la escritura de `sysLocation` con **`noAccess`**. Lo mismo ocurre en SW1 y SW2. |
+
+| <a href="screenshots/04-snmp-solo-lectura/snmpget-r1.png"><img src="screenshots/04-snmp-solo-lectura/snmpget-r1.png" width="400"></a> | <a href="screenshots/04-snmp-solo-lectura/snmpset-denegado-r1.png"><img src="screenshots/04-snmp-solo-lectura/snmpset-denegado-r1.png" width="400"></a> |
+
 
 <table>
 <tr>

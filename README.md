@@ -56,13 +56,13 @@
 
 ## 🎯 Propósito y objetivos
 
-Montar una LAN virtual donde un **router Cisco** entrega direcciones por **DHCP**, el router y dos **switches** exponen sus datos por **SNMP v2c de solo lectura**, y un **servidor Zabbix** (cliente DHCP) los consulta para **verificar los datos SNMP**.
+El propósito de esta práctica es implementar y validar la comunicación y monitorización de dispositivos de red utilizando protocolos estándar como DHCP y SNMP, integrando un sistema de monitorización centralizado.
 
 El laboratorio demuestra que:
 
-- el router **R1** es el gateway y el **servidor DHCP** de la LAN `10.7.1.0/24`;
+- El router **R1** es el gateway y el **servidor DHCP** de la LAN `10.7.1.0/24`;
 - **R1**, **SW1** y **SW2** permiten **leer** su información por SNMP pero **no modificarla**;
-- el servidor **Ubuntu** obtiene su dirección como **cliente DHCP** y ejecuta Zabbix;
+- El servidor **Ubuntu** obtiene su dirección como **cliente DHCP** y ejecuta Zabbix;
 - Zabbix recibe los datos SNMP de los tres equipos: sistema, interfaces y tráfico.
 
 | # | Objetivo | Estado |
@@ -592,7 +592,7 @@ Incidentes del laboratorio, con su evidencia, en [`docs/04-troubleshooting.md`](
 ```text
 .
 ├── README.md
-├── video/                      # guion del video demostrativo
+├── video/                     
 ├── docs/
 │   ├── assets/                 # banner, miniatura del video y diagrama de topología
 │   ├── 01-proposito-y-objetivos.md

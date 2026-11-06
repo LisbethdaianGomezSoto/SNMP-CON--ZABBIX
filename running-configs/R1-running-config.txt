@@ -1,11 +1,93 @@
-! ============================================================================
-!  R1 · running-config
+R1#show running-config
+Building configuration...
+
+Current configuration : 1324 bytes
 !
-!  Reemplaza todo este contenido con la salida de:
-!      terminal length 0
-!      show running-config
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
 !
-!  Antes de publicar, oculta los hashes de acceso:
-!      enable secret 5 <oculto>
-!      username Admin privilege 15 secret 5 <oculto>
-! ============================================================================
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$V4ZN$kFO8Bhh03BvRL9k9M6Kbn/
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+ip cef
+!
+!
+ip auth-proxy max-nodata-conns 3
+ip admission max-nodata-conns 3
+no ip dhcp use vrf connected
+ip dhcp excluded-address 10.7.1.1 10.7.1.10
+!
+ip dhcp pool LAN
+   network 10.7.1.0 255.255.255.0
+   default-router 10.7.1.1
+   dns-server 8.8.8.8
+!
+!
+no ip domain lookup
+ip domain name red.local
+!
+!
+!
+!
+username Admin privilege 15 secret 5 $1$L9x0$43KqKlZiqmBBsigRn7sbs0
+!
+!
+ip tcp synwait-time 5
+ip ssh version 2
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 10.7.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+snmp-server community ZBX_RO RO
+snmp-server location Laboratorio
+no cdp log mismatch duplex
+!
+!
+control-plane
+!
+!
+!
+banner motd ^CLisbeth GCez 2025-0701^C
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ login local
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+end
+
+R1#

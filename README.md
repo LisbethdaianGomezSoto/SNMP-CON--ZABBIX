@@ -110,9 +110,9 @@ Detalle ampliado: [`docs/01-proposito-y-objetivos.md`](docs/01-proposito-y-objet
 flowchart LR
     %% Nodos con formas diferentes
     Internet((🌐 Internet)):::wan
-    Router[/🟦 R1 - Cisco 7200<br/>20.25.6.97/24<br/>DHCP + SNMP RO/]:::router
-    Switch1[🔀 SW1 - IOSvL2<br/>20.25.6.98/24]:::switch
-    Switch2[🔀 SW2 - IOSvL2<br/>20.25.6.99/24]:::switch
+    Router[/🟦 R1 - Cisco 7200<br/>10.7.1.1/24<br/>DHCP + SNMP RO/]:::router
+    Switch1[🔀 SW1 - IOSvL2<br/>10.7.1.2/24]:::switch
+    Switch2[🔀 SW2 - IOSvL2<br/>10.7.1.3/24]:::switch
     Server[(🖥️ Zabbix - Ubuntu<br/>Cliente DHCP)]:::server
     PC[💻 Windows 10<br/>Gestión]:::client
 

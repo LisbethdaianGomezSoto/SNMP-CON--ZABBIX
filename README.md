@@ -472,7 +472,6 @@ Ruta: **Monitorización → Datos más recientes**, filtrando por **Equipos**.
 | Operating system | `12.4(25d)` | sin valor | sin valor |
 | Power supply status | `normal (1)` | — | — |
 
-**Coincidencia con la terminal:** `System location` = `Laboratorio` es el valor configurado en los equipos y el mismo que devuelve `snmpget`. El nombre aparece con el dominio (`R1.red.local`) porque los equipos tienen `ip domain-name red.local`; ver [problemas encontrados](#-problemas-encontrados).
 
 ### Todos los elementos recolectados
 

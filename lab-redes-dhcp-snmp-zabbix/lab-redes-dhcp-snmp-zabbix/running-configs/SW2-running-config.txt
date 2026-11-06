@@ -1,0 +1,11 @@
+! ============================================================================
+!  SW2 · running-config
+!
+!  Reemplaza todo este contenido con la salida de:
+!      terminal length 0
+!      show running-config
+!
+!  Antes de publicar, oculta los hashes de acceso:
+!      enable secret 5 <oculto>
+!      username Admin privilege 15 secret 5 <oculto>
+! ============================================================================

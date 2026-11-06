@@ -1,0 +1,6 @@
+# /etc/zabbix/zabbix_server.conf · extracto con los parametros de conexion a la base de datos
+# (el resto del archivo conserva los valores por defecto del paquete zabbix-server-mysql)
+
+DBName=zabbix
+DBUser=zabbix
+DBPassword=<omitida>

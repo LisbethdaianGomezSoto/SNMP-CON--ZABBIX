@@ -1,0 +1,14 @@
+%%{init: {'theme':'dark'}}%%
+sequenceDiagram
+    participant Z as 🖥 Servidor (snmp-tools)
+    participant A as 🔀 Agente SNMP (R1 · SW1 · SW2)
+
+    Z->>A: GET sysName.0 · comunidad ZBX_RO
+    A-->>Z: "R1" / "SW1" / "SW2"
+
+    Z->>A: SET sysLocation.0 = "prueba" · comunidad ZBX_RO
+    A-->>Z: Error · noAccess (solo lectura)
+
+    Z->>A: GET sysName.0 · comunidad incorrecta
+    Note over Z,A: El agente descarta la petición
+    A--xZ: Timeout · sin respuesta

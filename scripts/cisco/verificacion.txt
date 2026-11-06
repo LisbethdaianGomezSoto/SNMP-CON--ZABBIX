@@ -1,0 +1,21 @@
+! ============================================================================
+!  Comandos de verificacion usados para las evidencias
+! ============================================================================
+
+! --- R1 / SW1 / SW2 : direccionamiento ---
+show ip interface brief
+
+! --- R1 : servidor DHCP ---
+show running-config | section dhcp
+terminal length 0
+show ip dhcp binding
+show ip dhcp conflict
+show ip dhcp pool
+
+! --- R1 / SW1 / SW2 : SNMP ---
+show running-config | include snmp
+
+! --- Conectividad (R1) ---
+ping 10.7.1.1
+ping 10.7.1.2
+ping 10.7.1.3

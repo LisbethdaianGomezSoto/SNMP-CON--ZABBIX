@@ -1,6 +1,6 @@
 # 🧩 03 · Procedimiento
 
-[← Anterior: Direccionamiento](02-plan-de-direccionamiento.md) · [Volver al README](../README.md) · [Siguiente: Troubleshooting →](04-troubleshooting.md)
+[← Anterior: Direccionamiento](02-plan-de-direccionamiento.md) · [Volver al README](../README.md) · 
 
 Orden en que se ejecutó el laboratorio. Los comandos están también en [`scripts/`](../scripts).
 
@@ -296,4 +296,4 @@ Resultados y capturas completas en el [README](../README.md#-comunidad-snmp-de-s
 
 ---
 
-[← Anterior: Direccionamiento](02-plan-de-direccionamiento.md) · [Volver al README](../README.md) · [Siguiente: Troubleshooting →](04-troubleshooting.md)
+[← Anterior: Direccionamiento](02-plan-de-direccionamiento.md) · [Volver al README](../README.md) 

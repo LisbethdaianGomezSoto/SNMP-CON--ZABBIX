@@ -1,7 +1,0 @@
-# /etc/netplan/50-cloud-init.yaml · Ubuntu Server (servidor Zabbix)
-# Configuracion final: la interfaz de la LAN es cliente DHCP de R1.
-network:
-  version: 2
-  ethernets:
-    ens33:
-      dhcp4: true

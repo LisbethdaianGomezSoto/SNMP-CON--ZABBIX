@@ -522,8 +522,6 @@ Se reciben, entre otros: respuesta ICMP (*ping*, pérdida y tiempo), descripció
 | [`cisco/sw1-config.txt`](scripts/cisco/sw1-config.txt) · [`cisco/sw2-config.txt`](scripts/cisco/sw2-config.txt) | Comandos de los switches |
 | [`cisco/verificacion.txt`](scripts/cisco/verificacion.txt) | Comandos `show` usados para las evidencias |
 
-> Los archivos de `scripts/cisco/` están construidos a partir de los running-configs. Las contraseñas se dejan como `<…>`; en los `.sh` se piden al ejecutar.
-
 ---
 
 ## 📂 Running-configs

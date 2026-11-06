@@ -21,13 +21,15 @@
 ## 🎬 Video demostrativo
 
 <div align="center">
-
-<!-- 👉 Reemplaza REEMPLAZAR_ID_DEL_VIDEO por el identificador de tu video -->
-[![Ver el video demostrativo](docs/assets/video-placeholder.svg)](https://youtu.be/REEMPLAZAR_ID_DEL_VIDEO)
-
+  <a href="https://youtu.be/ZxOJ3XAqfVo" target="_blank">
+    <img src="https://img.shields.io/badge/▶_VER_VIDEO_DEMOSTRATIVO-111116?style=for-the-badge&logo=youtube&logoColor=00e5ff&labelColor=ff00ff" alt="Ver Video" width="400">
+  </a>
+  <br>
+  <p style="font-family: 'Courier New', monospace; color: #888; font-size: 14px;">
+    <b>DHCP · SNMP de solo lectura · Zabbix</b>
+  </p>
 </div>
 
-Guion de la demostración en [`video/README.md`](video/README.md).
 
 ---
 
